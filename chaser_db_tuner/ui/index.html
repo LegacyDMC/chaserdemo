@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Configuration</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/script.js" defer></script>
+</head>
+<body>
+    <div id="vehicleConfigContainer" style="display: none;">
+      <form id="vehicleConfigForm" onsubmit="handleSubmit(event)">
+          <div class="form-header">
+              <h1>C.H.A.S.E.R Config</h1>
+              <button type="button" class="close-btn" onclick="closeForm()">×</button>
+          </div>
+          <div class="form-body">
+              <!-- Differential Section -->
+              <div class="form-section">
+                <!-- Differential fields -->
+                <div class="form-group">
+                    <label for="hasflywheel">Has Flywheel:</label>
+                    <select id="hasflywheel" name="hasflywheel">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label for="hasdifferential">Has Differential:</label>
+                  <select id="hasdifferential" name="hasdifferential">
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="flywheelweight">Flywheel Weight:</label>
+                    <input type="number" step="0.1" id="flywheelweight" name="flywheelweight" value = "2.9" required>
+                </div>
+                <div class="form-group">
+                  <label for="frontdifflockprct">Front Differential Lock (%):</label>
+                  <input type="number" step="1" id="frontdifflockprct" name="frontdifflockprct" value = "100" required>
+                </div>
+                <div class="form-group">
+                  <label for="reardifflockprct">Rear Differential Lock (%):</label>
+                  <input type="number" step="1" id="reardifflockprct" name="reardifflockprct" value = "100" required>
+                </div>
+                <div class="gear-ratios">
+                    <div class="gear-ratio-input">
+                        <div class="gear-ratio-group">
+                            <label for="tcsstate">TCS State:</label>
+                            <select id="tcsstate" name="tcsstate">
+                                <option value="false">Disabled</option>
+                                <option value="true">Enabled</option>
+                            </select>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="escstate">ESC State:</label>
+                            <select id="escstate" name="escstate">
+                                <option value="false">Disabled</option>
+                                <option value="true">Enabled</option>
+                            </select>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="atglockstate">Gearlock State:</label>
+                            <select id="atglockstate" name="atglockstate">
+                                <option value="false">Disabled</option>
+                                <option value="true">Enabled</option>
+                            </select>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="tyretype">Tyre Type:</label>
+                            <input type="text" id="tyretype" name="tyretype" value = "default" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <!-- Gear Ratios Section -->
+              <div class="form-section">
+                  <!-- Gear ratio fields -->
+                  <div class="form-group">
+                    <label for="transmissiontype">Transmission Type:</label>
+                    <select id="transmissiontype" name="transmissiontype">
+                        <option value="2">Manual W/ Clutch</option>
+                        <option value="0">Sequential</option>
+                        <option value="1">Automatic</option>
+                    </select>
+                  </div>
+                  <div class="gear-ratios">
+                    <div class="gear-ratio-group">
+                        <label for="finaldrive">Final Drive:</label>
+                        <input type="number" id="finaldrive" name="finaldrive" value = "0.9" required>
+                    </div>
+                    <div class="gear-ratio-group">
+                        <label for="atshiftpoint">Automatic Shift Point:</label>
+                        <input type="number" id="atshiftpoint" name="atshiftpoint" value = "0.2" required>
+                    </div>
+                    <div class="gear-ratio-input">
+                        <div class="gear-ratio-group">
+                            <label for="gear1" id="labelg1">1st:</label>
+                            <input type="number" id="gear1" name="gear1" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear2" id="labelg2">2nd:</label>
+                            <input type="number" id="gear2" name="gear2" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear3" id="labelg3">3rd:</label>
+                            <input type="number" id="gear3" name="gear3" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear4" id="labelg4">4th:</label>
+                            <input type="number" id="gear4" name="gear4" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear5" id="labelg5">5th:</label>
+                            <input type="number" id="gear5" name="gear5" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear6" id="labelg6">6th:</label>
+                            <input type="number" id="gear6" name="gear6" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear7" id="labelg7">7th:</label>
+                            <input type="number" id="gear7" name="gear7" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear8" id="labelg8">8th:</label>
+                            <input type="number" id="gear8" name="gear8" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear9" id="labelg9">9th:</label>
+                            <input type="number" id="gear9" name="gear9" value = "0.5" required>
+                        </div>
+                        <div class="gear-ratio-group">
+                            <label for="gear0" id="labelg0">R:</label>
+                            <input type="number" id="gear0" name="gear0" value = "-0.5" required>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- Turbo Data Section -->
+              <div class="form-section">
+                <!-- Gear ratio fields -->
+                <div class="form-group">
+                  <label for="turbotype">Turbo Type:</label>
+                  <select id="turbotype" name="turbotype">
+                      <option value="3">Disabled</option>
+                      <option value="0">Turbo</option>
+                      <option value="1">Super Charger</option>
+                  </select>
+                </div>
+                <div class="gear-ratios">
+                  <div class="gear-ratio-input">
+                      <div class="gear-ratio-group">
+                          <label for="compressorsize">Compressor Size: (MM)</label>
+                          <input type="number" id="compressorsize" name="compressorsize" value = "0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                          <label for="peakturbodecayboost">Peak Turbo Decayment Boost (%):</label>
+                          <input type="number" id="peakturbodecayboost" name="peakturbodecayboost" value = "0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                          <label for="turbodecaypoint">Turbo Decayment Point (RPM %)</label>
+                          <input type="number" id="turbodecaypoint" name="turbodecaypoint" value = "0.0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                          <label for="maxtrboostpmax">Max Turbo Boost Point [MAX] (RPM%)</label>
+                          <input type="number" id="maxtrboostpmax" name="maxtrboostpmax" value = "0.0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                        <label for="maxtrboostpmin">Max Turbo Boost Point [MIN] (RPM%)</label>
+                        <input type="number" id="maxtrboostpmin" name="maxtrboostpmin" value = "0.0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                          <label for="maxtrboostpminprct">Max Turbo Boost Point [MIN] (%)</label>
+                          <input type="number" id="maxtrboostpminprct" name="maxtrboostpminprct" value = "0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                        <label for="maxtrboostpmaxprct">Max Turbo Boost Point [MAX] (%)</label>
+                        <input type="number" id="maxtrboostpmaxprct" name="maxtrboostpmaxprct" value = "0" required>
+                      </div>
+                      <div class="gear-ratio-group">
+                          <label for="booststartpoint">Boost Starting Point (RPM%)</label>
+                          <input type="number" id="booststartpoint" name="booststartpoint" value = "0.0" required>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+          <div class="form-footer">
+              <button type="submit">Submit</button>
+          </div>
+      </form>
+  </div>
+</body>
+</html>
